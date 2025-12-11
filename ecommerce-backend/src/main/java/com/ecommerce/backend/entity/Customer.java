@@ -26,6 +26,11 @@ public class Customer {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @NotBlank(message = "Customer name is required")
+    @Size(min = 2 ,max = 100, message = "Name must be 2-100 characters")
+    @Column(name ="name",nullable = false)
+    private String name;
+
     @Column(name="mobile_number")
     @NotBlank(message = "Phone number is required")
     @Size(min = 10,max = 15,message = "Phone must be 10-15 digits")
