@@ -1,6 +1,7 @@
 package com.ecommerce.backend.entity;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 import com.ecommerce.backend.entity.type.OrderStatus;
 
@@ -14,6 +15,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.PrePersist;
 import jakarta.persistence.PreUpdate;
 import jakarta.persistence.Table;
@@ -49,6 +51,9 @@ public class Order {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name="user_id",nullable = false)
     private User user;
+
+    @OneToMany(mappedBy = "order")
+    private List<OrderItem> items;
 
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
