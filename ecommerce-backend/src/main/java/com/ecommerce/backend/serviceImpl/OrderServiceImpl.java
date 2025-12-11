@@ -3,7 +3,6 @@ package com.ecommerce.backend.serviceImpl;
 import java.math.BigDecimal;
 import java.util.List;
 
-import org.modelmapper.ModelMapper;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
@@ -39,7 +38,6 @@ public class OrderServiceImpl implements OrderService {
      private final UserRepository userRepository;
      private final CustomerRepository customerRepository;
      private final ProductRepository productRepository;
-     private final ModelMapper modelMapper;
 
      @Override
      @Transactional(readOnly = true)
