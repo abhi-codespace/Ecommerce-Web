@@ -76,7 +76,12 @@ public class Product {
     }
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name="category_id",nullable = false)
+    @JoinColumn(name="category_id",
+    nullable = false)
     private Category category;
 
+    @NotNull(message = "Stock is required")
+    @Positive(message = "Stock must be positive")
+    @Column(nullable = false)
+    private Integer stock;
 }
